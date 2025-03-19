@@ -1,6 +1,6 @@
 import { Menu, Transition } from "@headlessui/react";
 import { Fragment, useState } from "react";
-import { FaUser, FaUserLock } from "react-icons/fa";
+import { FaUser} from "react-icons/fa";
 import { IoLogOutOutline } from "react-icons/io5";
 import { useDispatch, useSelector } from "react-redux";
 import { useNavigate } from "react-router-dom";
@@ -8,13 +8,12 @@ import { getInitials } from "../utils";
 
 const UserAvatar = () => {
   const [open, setOpen] = useState(false);
-  const [openPassword, setOpenPassword] = useState(false);
   const { user } = useSelector((state) => state.auth);
   const dispatch = useDispatch();
   const navigate = useNavigate();
 
   const logoutHandler = () => {
-    console.log("logout");
+    navigate("/log-in")
   };
 
   return (
@@ -52,17 +51,6 @@ const UserAvatar = () => {
                   )}
                 </Menu.Item>
 
-                <Menu.Item>
-                  {({ active }) => (
-                    <button
-                      onClick={() => setOpenPassword(true)}
-                      className={`tetx-gray-700 group flex w-full items-center rounded-md px-2 py-2 text-base`}
-                    >
-                      <FaUserLock className='mr-2' aria-hidden='true' />
-                      Change Password
-                    </button>
-                  )}
-                </Menu.Item>
 
                 <Menu.Item>
                   {({ active }) => (

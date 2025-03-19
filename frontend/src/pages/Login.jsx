@@ -16,11 +16,11 @@ const Login = () => {
   const navigate = useNavigate();
 
   const submitHandler = async (data) => {
-    console.log("submit");
+    navigate("/tasks")
   };
 
   useEffect(() => {
-    user && navigate("/tasks");
+    // user && navigate("/tasks");
   }, [user]);
 
   return (
@@ -33,8 +33,8 @@ const Login = () => {
               Manage all your tasks in one place!
             </span>
             <p className='flex flex-col gap-0 md:gap-4 text-4xl md:text-6xl 2xl:text-7xl font-black text-center text-blue-700'>
-              <span>Task</span>
-              <span>Man</span>
+              <span>TaskMan</span>
+              <p className="text-xl font-black text-black">A one-stop solution for all your tasks</p>
             </p>
 
             <div className='cell'>
@@ -54,8 +54,7 @@ const Login = () => {
                 Welcome back!
               </p>
               <p className='text-center text-base text-gray-700 '>
-                Keep all your credential safe.
-              </p>
+                  Lets get you logged in!              </p>
             </div>
 
             <div className='flex flex-col gap-y-5'>

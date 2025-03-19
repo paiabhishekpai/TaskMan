@@ -93,10 +93,10 @@ const MobileSidebar = () => {
 
 function App() {
   return (
-    <main className='w-full min-h-screen bg-[#f3f4f6] '>
+    <main className='w-full min-h-screen bg-[#eaeafa] '>
       <Routes>
         <Route element={<Layout />}>
-          <Route index path='/' element={<Navigate to='/tasks' />} />
+          <Route index path='/' element={<Navigate to='/log-in' />} />
           <Route path='/tasks' element={<Tasks />} />
           <Route path='/team' element={<Users />} />
           <Route path='/trashed' element={<Trash />} />
