@@ -1,3 +1,4 @@
+import React from 'react'
 import { Menu, Transition } from "@headlessui/react";
 import { Fragment, useState } from "react";
 import { FaUser} from "react-icons/fa";
@@ -5,6 +6,9 @@ import { IoLogOutOutline } from "react-icons/io5";
 import { useDispatch, useSelector } from "react-redux";
 import { useNavigate } from "react-router-dom";
 import { getInitials } from "../utils";
+import { useLogoutMutation } from "../redux/slices/api/authApiSlice";
+import { toast } from "sonner";
+
 
 const UserAvatar = () => {
   const [open, setOpen] = useState(false);
@@ -12,10 +16,18 @@ const UserAvatar = () => {
   const dispatch = useDispatch();
   const navigate = useNavigate();
 
-  const logoutHandler = () => {
-    navigate("/log-in")
-  };
+  const [logoutUser] = useLogoutMutation();
 
+  const logoutHandler = async () => {
+    try{
+      await logoutUser().unwrap();
+      dispatch(logout());
+       
+      navigate("/log-in")
+    } catch (error){
+    toast.error("Something went wrong");
+    }
+  };
   return (
     <>
       <div>
@@ -69,7 +81,7 @@ const UserAvatar = () => {
         </Menu>
       </div>
     </>
-  );
-};
+  )
+}
 
-export default UserAvatar;
+export default UserAvatar

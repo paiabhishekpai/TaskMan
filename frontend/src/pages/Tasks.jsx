@@ -8,6 +8,7 @@ import TaskTitle from "../components/TaskTitle";
 import BoardView from "../components/BoardView";
 import { tasks } from "../assets/data";
 import AddTask from "../components/task/AddTask";
+import { useGetAllTaskQuery } from "../redux/slices/api/taskApiSlice";
 
 const TASK_TYPE = {
   todo: "bg-blue-600",
@@ -19,11 +20,16 @@ const Tasks = () => {
   const params = useParams();
 
   const [open, setOpen] = useState(false);
-  const [loading, setLoading] = useState(false);
 
   const status = params?.status || "";
 
-  return loading ? (
+  const {data, isLoading} = useGetAllTaskQuery({
+    strQuery: status, 
+    isTrashed:"", 
+    search:"",
+  })
+
+  return isLoading ? (
     <div className='py-10'>
       <Loading />
     </div>
@@ -50,7 +56,7 @@ const Tasks = () => {
           </div>
         )}
 
-          <BoardView tasks={tasks} />
+          <BoardView tasks={data?.tasks} />
         
       <AddTask open={open} setOpen={setOpen} />
     </div>
