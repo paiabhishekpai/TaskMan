@@ -22,12 +22,13 @@ const UserAvatar = () => {
     try{
       await logoutUser().unwrap();
       dispatch(logout());
-       
-      navigate("/log-in")
+      navigate("/log-in");
     } catch (error){
-    toast.error("Something went wrong");
+      console.log(error);
+      toast.error("Something went wrong");
     }
   };
+  
   return (
     <>
       <div>
