@@ -1,4 +1,4 @@
-# 🚀 Fullstack Task Manager (MERN)
+# 🚀 TaskMan
 
 A **Cloud-Based Task Manager** built with the **MERN stack** to streamline team task management. This application provides a **user-friendly interface** for efficient **task assignment, tracking, and collaboration**. Designed for **both administrators and regular users**, it enhances productivity and organization.
 
