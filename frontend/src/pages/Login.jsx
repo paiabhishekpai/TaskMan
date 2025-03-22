@@ -47,7 +47,7 @@ const Login = () => {
             </span>
             <p className='flex flex-col gap-0 md:gap-4 text-4xl md:text-6xl 2xl:text-7xl font-black text-center text-blue-700'>
               <span>TaskMan</span>
-              <p className="text-xl font-black text-black">A one-stop solution for all your tasks</p>
+              <span className="text-xl font-black text-black">A one-stop solution for all your tasks</span>
             </p>
 
             <div className='cell'>
