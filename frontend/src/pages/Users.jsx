@@ -7,7 +7,7 @@ import { getInitials } from "../utils";
 import clsx from "clsx";
 import ConfirmatioDialog, { UserAction } from "../components/Dialogs";
 import AddUser from "../components/AddUser";
-import { useDaleteUserMutation, useGetTeamListQuery, useUserActionMutation } from "../redux/slices/api/userApiSlice";
+import { useDeleteUserMutation, useGetTeamListQuery, useUserActionMutation } from "../redux/slices/api/userApiSlice";
 import { toast } from "sonner";
 
 const Users = () => {
@@ -16,8 +16,8 @@ const Users = () => {
   const [openAction, setOpenAction] = useState(false);
   const [selected, setSelected] = useState(null);
 
-  const [data, isLoading, refetch] = useGetTeamListQuery();
-  const [deleteUser] = useDaleteUserMutation();
+  const {data, isLoading, refetch} = useGetTeamListQuery();
+  const [deleteUser] = useDeleteUserMutation();
   const [userAction] = useUserActionMutation();
 
   const userActionHandler = async () => {

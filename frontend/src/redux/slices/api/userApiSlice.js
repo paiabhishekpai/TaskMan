@@ -19,7 +19,7 @@ export const userApiSlice = apiSlice.injectEndpoints({
                 credentials: "include",
             }),
         }),
-        daleteUser: builder.mutation({
+        deleteUser: builder.mutation({
             query:(id)=>({
                 url: `${USER_URL}/${id}`,
                 method:"DELETE",
@@ -60,4 +60,4 @@ export const userApiSlice = apiSlice.injectEndpoints({
     }),
 });
 
-export const {useUpdateUserMutation, useGetTeamListQuery,useDaleteUserMutation, useUserActionMutation, useGetNotificationsQuery, useMarkNotiAsReadMutation, useChangePasswordMutation, }=userApiSlice
+export const {useUpdateUserMutation, useGetTeamListQuery,useDeleteUserMutation, useUserActionMutation, useGetNotificationsQuery, useMarkNotiAsReadMutation, useChangePasswordMutation, }=userApiSlice
